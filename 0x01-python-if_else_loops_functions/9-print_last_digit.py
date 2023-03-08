@@ -1,9 +1,6 @@
 #!/usr/bin/python3
 
 def print_last_digit(number):
-    if not isinstance(number, (int, float)):
-        return
-
     if number < 0:
         number = number * -1
 
