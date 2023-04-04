@@ -1,3 +1,3 @@
 #!/usr/bin/python3
 def copy_list(l):
-    return list(l)[:]
+    return [x for x in l if isinstance(l, list)]
