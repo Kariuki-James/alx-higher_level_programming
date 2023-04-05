@@ -54,7 +54,6 @@ class Rectangle():
                 rect.append('\n')
         return ("".join(rect))
 
-
     def area(self):
         """Calculates the area of a rectangle
 
