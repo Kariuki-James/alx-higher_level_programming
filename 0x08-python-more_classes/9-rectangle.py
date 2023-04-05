@@ -98,7 +98,7 @@ class Rectangle():
         Args:
             rect_1: first Rectangle
             rect_2: second Rectangle
-        
+
         Returns:
             The biggest rectangle based on the area.
             OR 'rect_1' if both have the same area value
