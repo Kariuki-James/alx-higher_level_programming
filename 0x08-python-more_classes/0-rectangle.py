@@ -3,6 +3,6 @@
 """
 
 
-class Rectange():
+class Rectangle():
     """Represents a Rectangle"""
     pass
