@@ -50,3 +50,22 @@ a must be an integer
 ...		print(e)
 ...
 b must be an integer
+
+Float overflow
+-------------------------------------------
+>>> try:
+...     print(add_integer(3.33e54798))
+... except Exception as e:
+...     print(e)
+... 
+cannot convert float infinity to integer
+
+
+Float NaN
+-------------------------------------------
+>>> try:
+...     print(add_integer(float('nan')))
+... except Exception as e:
+...     print(e)
+... 
+cannot convert float NaN to integer
