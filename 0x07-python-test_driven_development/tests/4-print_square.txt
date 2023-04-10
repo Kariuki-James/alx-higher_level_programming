@@ -1,0 +1,66 @@
+==============================
+The '4-print_square' module
+==============================
+
+FUNCTION:
+	print_square - prints a square with the character #
+
+
+EXAMPLES
+==========
+
+>>> print_square = __import__('4-print_square').print_square
+>>>
+
+:: Correct Usage
+------------------------------
+>>> print_square(4)
+####
+####
+####
+####
+>>> print_square(10)
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+##########
+
+
+:: Invalid Arguments
+-------------------------------
+>>> try:
+... 	print_square()
+... except TypeError:
+... 	print("Missing arguments")
+...
+Missing arguments
+>>>
+>>>
+>>> try:
+... 	print_square("four")
+... except TypeError as err:
+... 	print(err)
+...
+size must be an integer
+>>>
+>>>
+>>> try:
+... 	print_square(-5)
+... except ValueError as err:
+... 	print(err)
+...
+size must be >= 0
+>>>
+>>>
+>>> try:
+... 	print_square("-30.50")
+... except TypeError as err:
+... 	print(err)
+...
+size must be an integer
