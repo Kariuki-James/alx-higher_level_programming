@@ -1,0 +1,71 @@
+================================
+The '2-matrix_divided' module
+================================
+
+FUNCTIONS:
+	matrix_divided(matrix, div) - divides all elements of a matrix
+
+EXAMPLES
+==========
+
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+>>>
+
+Correct Usage
+--------------------------------------
+>>> matrix = [
+... 	[1, 2, 3],
+... 	[4, 5, 6]
+... ]
+>>> print(matrix)
+[[1, 2, 3], [4, 5, 6]]
+>>> print(matrix_divided(matrix, 3))
+[[0.33, 0.67, 1.0], [1.33, 1.67, 2.0]]
+>>> print(matrix_divided(matrix, -3))
+[[-0.33, -0.67, -1.0], [-1.33, -1.67, -2.0]]
+
+
+Invalid matrix
+-----------------------------------------
+>>> matrix = [
+... 	[1, "python", 3],
+... 	[4, 5, 6]
+... ]
+>>> try:
+... 	print(matrix_divided(matrix, 3))
+... except TypeError as e:
+... 	print(e)
+...
+matrix must be a matrix (list of lists) of integers/floats
+>>>
+>>> matrix = [
+... 	[1, 2, 3, 4],
+... 	[4, 5, 6]
+... ]
+>>> try:
+... 	print(matrix_divided(matrix, 3))
+... except TypeError as e:
+... 	print(e)
+...
+Each row of the matrix must have the same size
+
+
+Invalid 'div'
+------------------------------------------
+>>> matrix = [
+... 	[1, 2, 3],
+... 	[4, 5, 6]
+... ]
+>>> try:
+... 	print(matrix_divided(matrix, "python"))
+... except TypeError as e:
+... 	print(e)
+...
+div must be a number
+>>>
+>>> try:
+... 	print(matrix_divided(matrix, 0))
+... except ZeroDivisionError as e:
+... 	print(e)
+...
+division by zero
