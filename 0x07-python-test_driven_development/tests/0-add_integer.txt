@@ -1,0 +1,52 @@
+============================
+The '0-add_integer' module
+============================
+
+FUNCTIONS:
+	add_integer: adds 2 integers and returns the sum
+
+
+EXAMPLES:
+==========
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>>
+
+
+Positive and Negative integers
+------------------------------------
+>>> print(add_integer(10, 20))
+30
+>>> print(add_integer(2))
+100
+>>> print(add_integer(150, -20))
+130
+>>> print(add_integer(-10))
+88
+>>> print(add_integer(-10, -50))
+-60
+
+Floating point numbers
+------------------------------------
+>>> print(add_integer(10.5, 20.8))
+30
+>>> print(add_integer(100.6, 20.7))
+120
+>>> print(add_integer(10.5))
+108
+
+Non-numerical arguments
+------------------------------------
+>>> try:
+...		print(add_integer("James"))
+... except Exception as e:
+...		print(e)
+...
+a must be an integer
+>>>
+>>> try:
+...		print(add_integer(25, "Kariuki"))
+... except Exception as e:
+...		print(e)
+...
+b must be an integer
