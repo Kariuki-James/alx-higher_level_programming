@@ -1,0 +1,46 @@
+==============================
+The '3-say_my_name' module
+==============================
+
+FUNCTIONS:
+	say_my_name - prints a person's first and last names.
+
+
+EXAMPLES
+==========
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>>
+
+:: Correct usage
+-------------------------------
+>>> say_my_name("James", "Kariuki")
+My name is James Kariuki
+>>> say_my_name("James")
+My name is James 
+>>>
+
+
+:: Invalid Arguments
+-------------------------------
+>>> try:
+... 	say_my_name(99, "James")
+... except TypeError as err:
+... 	print(err)
+...
+first_name must be a string
+>>>
+>>>
+>>> try:
+... 	say_my_name("James", 99)
+... except TypeError as err:
+... 	print(err)
+...
+last_name must be a string
+>>>
+>>>
+>>> try:
+... 	say_my_name()
+... except TypeError:
+... 	print("Missing a required argument")
+...
+Missing a required argument
