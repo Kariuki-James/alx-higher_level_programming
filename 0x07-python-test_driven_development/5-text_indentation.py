@@ -21,9 +21,10 @@ def text_indentation(text):
         if counter > 0:
             print(' ', end='')
 
-        print(word, end='')
-        counter += 1
-
-        if word[-1] in delimeters:
-            print('\n')
-            counter = 0
+        for char in word:
+            if char in delimeters:
+                print("{}\n".format(char))
+                counter = 0
+            else:
+                print(char, end='')
+                counter += 1
