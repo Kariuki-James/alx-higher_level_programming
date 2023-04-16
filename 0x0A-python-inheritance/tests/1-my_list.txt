@@ -13,6 +13,7 @@ USAGE
 
 :: Instatiation
 ----------------------------------
+
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
@@ -24,10 +25,35 @@ USAGE
 >>>
 
 :: ``print_sorted`` method
-----------------------------------
+--------------------------------------
+
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
->>> my_list = MyList([50, 40, 30, 20, 10])
->>> my_list.print_sorted()
-[10, 20, 30, 40, 50]
+When all values are positive integers
+
+::
+
+	>>> my_list = MyList([50, 40, 30, 20, 10])
+	>>> my_list.print_sorted()
+	[10, 20, 30, 40, 50]
+
+When values have negative integers
+
+::
+
+	>>> my_list = MyList([50, 40, -30, 20, 10])
+	>>> my_list.print_sorted()
+	[-30, 10, 20, 40, 50]
+	
+print_sorted with empty list
+
+::
+
+	>>> my_list = MyList([])
+	>>> my_list.print_sorted()
+	[]
