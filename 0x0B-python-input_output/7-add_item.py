@@ -1,10 +1,7 @@
 #!/usr/bin/python3
-'''This script adds all arguments to a Python list
-and then save them to a file'''
+"""This script adds all arguments to a Python list
+and then save them to a file"""
 
-
-if __name__ != "__main__":
-    quit()
 
 import json
 import sys
