@@ -115,11 +115,10 @@ Non-integer arguments (second arguments must be an int)
 	>>>
 	>>> try:
 	... 	bg.integer_validator("name", True)
-	... 	print("True == {:d}".format(True))
 	... except TypeError as e:
 	... 	print(e)
 	...
-	True == 1
+	name must be an integer
 	>>>
 	>>> try:
 	... 	bg.integer_validator("name", None)
