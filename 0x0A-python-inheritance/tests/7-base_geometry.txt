@@ -57,13 +57,6 @@ With two arguments (second arguments must be an int)
 ::
 
 	>>> try:
-	... 	bg.integer_validator("name", "James")
-	... except TypeError as e:
-	... 	print(e)
-	...
-	name must be an integer
-	>>>
-	>>> try:
 	... 	bg.integer_validator("age", 23)
 	... 	print("James is {:d} years old".format(23))
 	... except TypeError as e:
@@ -86,3 +79,44 @@ With two arguments (second arguments must be an int)
 	... 	print(e)
 	...
 	distance must be greater than 0
+
+
+Non-integer arguments (second arguments must be an int)
+
+::
+
+	>>> try:
+	... 	bg.integer_validator("name", "James")
+	... except TypeError as e:
+	... 	print(e)
+	...
+	name must be an integer
+	>>>
+	>>> try:
+	... 	bg.integer_validator("name", (15,))
+	... except TypeError as e:
+	... 	print(e)
+	...
+	name must be an integer
+	>>>
+	>>> try:
+	... 	bg.integer_validator("name", [23])
+	... except TypeError as e:
+	... 	print(e)
+	...
+	name must be an integer
+	>>>
+	>>> try:
+	... 	bg.integer_validator("name", [15, 25])
+	... except TypeError as e:
+	... 	print(e)
+	...
+	name must be an integer
+	>>>
+	>>> try:
+	... 	bg.integer_validator("name", None)
+	... except TypeError as e:
+	... 	print(e)
+	...
+	name must be an integer
+	>>>
