@@ -1,18 +1,18 @@
 =========================
 The '1-my_list' module
 =========================
-Defines a Class that inherits from 'list'
+Defines a Class ``MyList`` that inherits from ``list``
 
 
-EXAMPLES
-=========
+USAGE
+======
 
 >>> MyList = __import__('1-my_list').MyList
 >>>
 
 
-:: Correct Usage
----------------------------
+:: Instatiation
+----------------------------------
 >>> my_list = MyList()
 >>> my_list.append(1)
 >>> my_list.append(4)
@@ -22,14 +22,12 @@ EXAMPLES
 >>> print(my_list)
 [1, 4, 2, 3, 5]
 >>>
+
+:: ``print_sorted`` method
+----------------------------------
 >>> my_list.print_sorted()
 [1, 2, 3, 4, 5]
->>>
 
->>> my_list = [10, 20, 30, 40, 50]
->>> my_list.print_sorted()
-[10, 20, 30, 40, 50]
-
->>> my_list = [50, 40, 30, 20, 10]
+>>> my_list = MyList([50, 40, 30, 20, 10])
 >>> my_list.print_sorted()
 [10, 20, 30, 40, 50]
