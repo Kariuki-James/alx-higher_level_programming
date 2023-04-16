@@ -1,0 +1,88 @@
+===================================================
+The '7-base_geometry' module
+===================================================
+This module defines one class ``BaseGeometry``
+
+
+USAGE
+======
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>>
+
+:: Instantiation
+----------------------------------------
+>>> bg = BaseGeometry()
+
+
+:: ``area`` method
+----------------------------------------
+>>> try:
+... 	bg.area()
+... except Exception as e:
+... 	print(e)
+...
+area() is not implemented
+
+
+:: ``integer_validator`` method
+----------------------------------------
+
+With zero arguments
+
+::
+
+	>>> try:
+	... 	bg.integer_validator()
+	... except TypeError as e:
+	... 	print("Invalid number of arguments")
+	...
+	Invalid number of arguments
+	>>>
+
+With one argument
+
+::
+
+	>>> try:
+	... 	bg.integer_validator("name")
+	... except TypeError as e:
+	... 	print("Invalid number of arguments")
+	...
+	Invalid number of arguments
+	>>>
+
+With two arguments (second arguments must be an int)
+
+::
+
+	>>> try:
+	... 	bg.integer_validator("name", "James")
+	... except TypeError as e:
+	... 	print(e)
+	...
+	name must be an integer
+	>>>
+	>>> try:
+	... 	bg.integer_validator("age", 23)
+	... 	print("James is {:d} years old".format(23))
+	... except TypeError as e:
+	... 	print(e)
+	...
+	James is 23 years old
+	>>>
+	>>> try:
+	... 	bg.integer_validator("age", -10)
+	... 	print("James is {:d} years old".format(0))
+	... except ValueError as e:
+	... 	print(e)
+	...
+	age must be greater than 0
+	>>>
+	>>> try:
+	... 	bg.integer_validator("distance", 0)
+	... 	print("The distance is {:d}".format(0))
+	... except ValueError as e:
+	... 	print(e)
+	...
+	distance must be greater than 0
