@@ -2,7 +2,6 @@
 '''This module defines the base class for the entire project'''
 
 
-
 class Base:
     '''Base class for other classes'''
 
@@ -14,4 +13,3 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
-            
