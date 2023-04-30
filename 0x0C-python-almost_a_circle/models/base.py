@@ -55,3 +55,15 @@ class Base:
         if json_string:
             return json.loads(json_string)
         return []
+
+    @classmethod
+    def create(cls, **dictionary):
+        '''returns an instance with all attributes already set
+
+        Args:
+            **dictionary (dict)
+        '''
+        if issubclass(cls, Base):
+            new_obj = cls(width=10, height=10)
+            new_obj.update(**dictionary)
+        return new_obj
