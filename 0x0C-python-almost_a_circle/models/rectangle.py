@@ -133,6 +133,7 @@ class Rectangle(Base):
             self.y = kwargs.get('y', self.y)
 
     def to_dictionary(self):
+        '''returns the dictionary representation of a Rectangle'''
         return {
             'id': self.id,
             'width': self.width,
