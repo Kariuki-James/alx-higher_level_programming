@@ -98,3 +98,26 @@ class Rectangle(Base):
             for col in range(self.width):
                 print('#', end='')
             print()
+
+    def update(self, *args):
+        '''assigns an argument to each attribute
+
+        Args:
+            *args: A tuple containing attribues:
+                arg1 (int): id
+                arg2 (int): width
+                arg3 (int): height
+                arg4 (int): x
+                arg5 (int): y
+        '''
+        for i, arg in enumerate(args):
+            if i == 0:
+                self.id = arg
+            elif i == 1:
+                self.width = arg
+            elif i == 2:
+                self.height = arg
+            elif i == 3:
+                self.x = arg
+            elif i == 4:
+                self.y = arg
