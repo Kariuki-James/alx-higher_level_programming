@@ -17,7 +17,7 @@ class Base:
 
     @staticmethod
     def to_json_string(list_dictionaries):
-        '''serializes a list of Python dictionaries to JSON string representation.
+        '''serializes Python dictionaries to JSON string.
 
         Args:
             list_dictionaries (list): a list of dictionaries
@@ -31,7 +31,11 @@ class Base:
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''writes JSON representation of @list_objs to a file'''
+        '''writes JSON representation of objects to a file
+
+        Args:
+            list_objs (list): a list of objects
+        '''
 
         filename = f"{cls.__name__}.json"
         with open(filename, 'w', encoding='utf-8') as f:
