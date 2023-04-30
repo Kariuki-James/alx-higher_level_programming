@@ -63,7 +63,10 @@ class Base:
         Args:
             **dictionary (dict)
         '''
-        if issubclass(cls, Base):
+        if cls.__name__ == "Rectangle":
             new_obj = cls(width=10, height=10)
+            new_obj.update(**dictionary)
+        if cls.__name__ == "Square":
+            new_obj = cls(size=10)
             new_obj.update(**dictionary)
         return new_obj
