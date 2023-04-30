@@ -99,16 +99,19 @@ class Rectangle(Base):
                 print('#', end='')
             print()
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         '''assigns an argument to each attribute
 
         Args:
             *args: A tuple containing attribues:
-                arg1 (int): id
-                arg2 (int): width
-                arg3 (int): height
-                arg4 (int): x
-                arg5 (int): y
+                arg[0] (int): id
+                arg[1] (int): width
+                arg[2] (int): height
+                arg[3] (int): x
+                arg[4] (int): y
+
+            **kwargs: Key-worded values for each attribute.
+                Only used if `*args` doesn't exist or is empty.
         '''
         for i, arg in enumerate(args):
             if i == 0:
@@ -121,3 +124,10 @@ class Rectangle(Base):
                 self.x = arg
             elif i == 4:
                 self.y = arg
+
+        if not args:
+            self.id = kwargs.get('id', self.id)
+            self.width = kwargs.get('width', self.width)
+            self.height = kwargs.get('height', self.height)
+            self.x = kwargs.get('x', self.x)
+            self.y = kwargs.get('y', self.y)
