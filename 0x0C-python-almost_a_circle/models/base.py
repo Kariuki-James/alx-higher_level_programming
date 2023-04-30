@@ -44,3 +44,14 @@ class Base:
                 f.write(Base.to_json_string(list_dictionaries))
             else:
                 json.dump([], f)
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''returns a Python list from JSON string
+
+        Args:
+            json_string (str): a string representing a list of dictionaries
+        '''
+        if json_string:
+            return json.loads(json_string)
+        return []
