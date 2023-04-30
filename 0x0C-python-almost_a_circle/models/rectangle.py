@@ -88,7 +88,13 @@ class Rectangle(Base):
 
     def display(self):
         '''prints the rectangle instance with the character `#`'''
+        for y_coord in range(self.y):
+            print()
+
         for row in range(self.height):
+            for x_coord in range(self.x):
+                print(end=' ')
+
             for col in range(self.width):
                 print('#', end='')
             print()
