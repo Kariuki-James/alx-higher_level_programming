@@ -36,7 +36,7 @@ class Base:
         filename = f"{cls.__name__}.json"
         with open(filename, 'w', encoding='utf-8') as f:
             if list_objs:
-                new_list = [x.to_dictionary() for x in list_objs]
-                json.dump(new_list, f)
+                list_dictionaries = [x.to_dictionary() for x in list_objs]
+                f.write(Base.to_json_string(list_dictionaries))
             else:
                 json.dump([], f)
