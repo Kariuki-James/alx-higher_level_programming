@@ -70,3 +70,14 @@ class Base:
             new_obj = cls(size=10)
             new_obj.update(**dictionary)
         return new_obj
+
+    @classmethod
+    def load_from_file(cls):
+        '''returns a list of object instances from a json file'''
+        filename = cls.__name__ + ".json"
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                data = Base.from_json_string(f.read())
+                return [cls.create(**obj) for obj in data]
+        except FileNotFoundError:
+            return []
