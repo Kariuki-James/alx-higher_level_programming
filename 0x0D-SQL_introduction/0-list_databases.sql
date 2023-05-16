@@ -1,2 +1,2 @@
 /* Lists databases */
-show databases;
+SHOW databases;
