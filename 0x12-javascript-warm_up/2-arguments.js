@@ -5,5 +5,5 @@ if (len > 3) {
 } else if (len > 2) {
   console.log('Argument found');
 } else {
-  console.log('No Argument');
+  console.log('No argument');
 }
