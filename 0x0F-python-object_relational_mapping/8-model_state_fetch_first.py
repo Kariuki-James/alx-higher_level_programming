@@ -9,7 +9,7 @@ from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
 if __name__ != "__main__":
-    sys.exit()
+    quit()
 
 if len(sys.argv) < 4:
     print("3 args required: <db-username> <db-passwd> <db-name>")
