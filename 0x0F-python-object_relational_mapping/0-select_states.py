@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+'''MySQLdb connection to insert states
+'''
+
 import MySQLdb
 import sys
 
