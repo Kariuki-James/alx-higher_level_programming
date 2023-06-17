@@ -26,9 +26,9 @@ def search_state(username, password, dbname, state_name):
             )
     cur = conn.cursor()
     sql = "SELECT * FROM states \
-            WHERE states.name = '{}' \
-            ORDER BY states.id ASC;".format(state_name)
-    cur.execute(sql)
+            WHERE states.name = %s \
+            ORDER BY states.id ASC;"
+    cur.execute(sql, (state_name,))
 
     result = cur.fetchall()
     for row in result:
@@ -40,7 +40,7 @@ def search_state(username, password, dbname, state_name):
 if __name__ == "__main__":
     num_args = len(argv)
     if num_args < 5:
-        print("4 arguments required: <username> <password>"
+        print("4 arguments required: <username> <password> "
               "<dbname> <state_name>")
     else:
         search_state(argv[1], argv[2], argv[3], argv[4])
