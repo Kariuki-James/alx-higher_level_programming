@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''1-filter_states module
+'''
 Lists states with filtered names
 '''
 

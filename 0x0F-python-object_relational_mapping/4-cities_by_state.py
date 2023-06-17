@@ -1,20 +1,19 @@
 #!/usr/bin/python3
 '''
-Lists states with filtered names
+Lists all cities from a database
 '''
 
 from sys import argv
 import MySQLdb
 
 
-def search_state(username, password, dbname, state_name):
-    '''searches for a state in states table
+def list_cities(username, password, dbname):
+    '''lists all cities.
 
     Args:
         username (str): mysql username
         password (str): mysql password
         dbname (str): mysql database name
-        state_name (str): state to search for
     '''
     conn = MySQLdb.connect(
             host="localhost",
@@ -25,9 +24,10 @@ def search_state(username, password, dbname, state_name):
             charset="utf8"
             )
     cur = conn.cursor()
-    sql = "SELECT * FROM states \
-            WHERE BINARY states.name = '{}' \
-            ORDER BY states.id ASC;".format(state_name)
+    sql = "SELECT cities.id, cities.name, states.name\
+            FROM cities INNER JOIN states \
+            ON cities.state_id = states.id \
+            ORDER BY cities.id ASC;"
     cur.execute(sql)
 
     result = cur.fetchall()
@@ -39,8 +39,7 @@ def search_state(username, password, dbname, state_name):
 
 if __name__ == "__main__":
     num_args = len(argv)
-    if num_args < 5:
-        print("4 arguments required: <username> <password>"
-              "<dbname> <state_name>")
+    if num_args < 4:
+        print("3 arguments required: <username> <password> <dbname>")
     else:
-        search_state(argv[1], argv[2], argv[3], argv[4])
+        list_cities(argv[1], argv[2], argv[3])
