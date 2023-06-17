@@ -24,13 +24,14 @@ def list_all_states(username, password, dbname):
             charset="utf8"
             )
     cur = conn.cursor()
-    cur.execute("SELECT * FROM states ORDER BY states.id ASC")
+    cur.execute("SELECT * FROM states ORDER BY states.id ASC;")
 
     result = cur.fetchall()
     for row in result:
         print(row)
     cur.close()
     conn.close()
+
 
 if __name__ == "__main__":
     num_args = len(argv)
