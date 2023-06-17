@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Lists all states in a table
+'''Search for a State object
 '''
 import sys
 
@@ -8,8 +8,8 @@ from sqlalchemy.orm import sessionmaker
 
 from model_state import Base, State
 
-if len(sys.argv) < 4:
-    print("3 args required: <db-username> <db-passwd> <db-name>")
+if len(sys.argv) < 5:
+    print("4 args required: <db-username> <db-passwd> <db-name> <state-name>")
     sys.exit()
 
 if __name__ == "__main__":
@@ -20,9 +20,11 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    query = session.query(State).order_by(State.id.asc())
+    query = session.query(State).filter(State.name == sys.argv[4])\
+        .order_by(State.id.asc())
     result = query.first()
     if result:
-        print(f'{result.id}:', result.name)
+        print(f'{result.id}')
     else:
-        print("Nothing")
+        print("Not found")
+    session.close()

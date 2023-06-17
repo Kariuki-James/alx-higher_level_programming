@@ -21,7 +21,7 @@ if __name__ == "__main__":
     session = Session()
 
     query = session.query(State).filter(State.name.like('%a%'))\
-            .order_by(State.id.asc())
+        .order_by(State.id.asc())
     result = query.all()
     for state in result:
         print(f'{state.id}:', state.name)
