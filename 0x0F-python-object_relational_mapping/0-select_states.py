@@ -7,7 +7,7 @@ if __name__ != "__main__":
 
 num_args = len(sys.argv)
 if num_args < 4:
-    print("3 arguments required, <username> <passwd> <dbname>")
+    print("3 arguments required: <username> <passwd> <dbname>")
     sys.exit()
 
 conn = MySQLdb.connect(
@@ -20,8 +20,8 @@ conn = MySQLdb.connect(
         )
 cur = conn.cursor()
 cur.execute("SELECT * FROM states ORDER BY states.id ASC")
-query_rows = cur.fetchall()
-for row in query_rows:
+result = cur.fetchall()
+for row in result:
     print(row)
 cur.close()
 conn.close()
