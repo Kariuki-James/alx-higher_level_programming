@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''Lists all states in a table
 '''
-
 import sys
 
 from sqlalchemy import create_engine
@@ -24,5 +23,5 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 query = session.query(State).order_by(State.id.asc())
-for state in query.all():
-    print(f'{state.id}:', state.name)
+result = query.first()
+print(f'{result.id}:', result.name)
