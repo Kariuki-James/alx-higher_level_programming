@@ -29,10 +29,4 @@ if __name__ == "__main__":
         for city in state.cities:
             print(f'\t{city.id}:', city.name)
 
-    # if result:
-    #     try:
-    #         session.commit()
-    #     except Exception as e:
-    #         print("Failed to insert state:", str(e))
-    #     finally:
-    #         session.close()
+    session.close()
