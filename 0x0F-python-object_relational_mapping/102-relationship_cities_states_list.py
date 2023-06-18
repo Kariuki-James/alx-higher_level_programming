@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-'''Creates a state and an associated city
+'''List all cities with State names
 '''
 import sys
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, joinedload
 
 from relationship_city import City
 from relationship_state import Base, State
@@ -21,13 +21,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    california = State(name='California')
-    california.cities = [City(name='San Francisco')]
-    session.add(california)
+    query = session.query(City).join(City.state).order_by(City.id)
 
-    try:
-        session.commit()
-    except Exception as e:
-        print("Failed to insert state:", str(e))
-    finally:
-        session.close()
+    for city in query.all():
+        print(f'{city.id}:', city.name, '->', city.state.name)
+
+    session.close()

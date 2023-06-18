@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-'''Search for a State object
+'''Retrieves States and cities with eager loading
 '''
 import sys
 
