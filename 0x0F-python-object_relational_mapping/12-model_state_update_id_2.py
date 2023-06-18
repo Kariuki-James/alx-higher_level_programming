@@ -20,17 +20,16 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    new_state = State(name='Louisiana')
-    session.add(new_state)
-
-    query = session.query(State).filter(State.name == 'Louisiana')
-    result = query.first()
-    if result:
-        try:
-            session.commit()
-            print(result.id)
-        except Exception as e:
-            print("Insert of new record failed")
-    else:
-        print("Not found")
-    session.close()
+    query = session.query(State).filter(State.id == 2)
+    try:
+        state = query.one()
+        state.name = 'New Mexico'
+        session.commit()
+    except NoResultFound as e:
+        print("State not found")
+    except MultipleResultsFound as e:
+        print("Multiple states found")
+    except Exception as e:
+        print("An error occured during the session")
+    finally:
+        session.close()
