@@ -4,7 +4,7 @@
 import sys
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, joinedload
+from sqlalchemy.orm import sessionmaker, selectinload
 
 from relationship_city import City
 from relationship_state import Base, State
